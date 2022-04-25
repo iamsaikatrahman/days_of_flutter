@@ -11,7 +11,9 @@ class HomeDetailPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: MyTheme.creamColor,
-      appBar: AppBar(),
+      appBar: AppBar(
+        backgroundColor: Colors.transparent,
+      ),
       bottomNavigationBar: Container(
         color: Colors.white,
         child: ButtonBar(
@@ -25,8 +27,8 @@ class HomeDetailPage extends StatelessWidget {
                   backgroundColor:
                       MaterialStateProperty.all(MyTheme.darkBluishColor),
                   shape: MaterialStateProperty.all(const StadiumBorder())),
-              child: "Buy".text.lg.bold.make(),
-            ).wh(100, 50)
+              child: "Add To Cart".text.lg.bold.make(),
+            ).wh(130, 50)
           ],
         ).p16(),
       ),
@@ -46,16 +48,23 @@ class HomeDetailPage extends StatelessWidget {
               child: Container(
                 color: Colors.white,
                 width: context.screenWidth,
-                child: Column(
-                  children: [
-                    catalog!.name!.text.xl4
-                        .color(MyTheme.darkBluishColor)
-                        .bold
-                        .make(),
-                    catalog!.desc!.text.xl.caption(context).make(),
-                    10.heightBox,
-                  ],
-                ).p64(),
+                child: SingleChildScrollView(
+                  child: Column(
+                    children: [
+                      catalog!.name!.text.xl4
+                          .color(MyTheme.darkBluishColor)
+                          .bold
+                          .make(),
+                      catalog!.desc!.text.xl.caption(context).make(),
+                      10.heightBox,
+                      "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English."
+                          .text
+                          .caption(context)
+                          .make()
+                          .p16(),
+                    ],
+                  ).py64(),
+                ),
               ),
             )),
           ],
