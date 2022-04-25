@@ -22,6 +22,7 @@ class MyApp extends StatelessWidget {
       theme: MyTheme.lightTheme(context),
       initialRoute: MyRoutes.homeRoutes,
       routes: {
+        "/": (context) => const LoginPage(),
         MyRoutes.homeRoutes: (context) => const HomePage(),
         MyRoutes.loginRoutes: (context) => const LoginPage(),
         MyRoutes.tourRoutes: (context) => const ToursPage(),
